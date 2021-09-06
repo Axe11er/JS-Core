@@ -45,12 +45,10 @@ const data = [
 ];
 
 const createUsernames = users => {
-   let username = '';
-   users.forEach(element => {
-      username = `${element.firstName}${element.lastName[0]}${
-         new Date().getFullYear() - element.age - 1
+   users.map(user => {
+      user.username = `${user.firstName}${user.lastName[0]}${
+         new Date().getFullYear() - user.age - 1
       }`.toLowerCase();
-      element.username = username;
    });
    return users;
 };

@@ -35,16 +35,20 @@ const data = [
    },
 ];
 
-const getField = (data, field) => {
-   let newArr = [];
-   if (!data) {
-      return newArr;
-   }
-   newArr = data.reduce((acc, item, index) => {
-      acc[index] = item[field];
-      return acc;
-   }, []);
-   return newArr;
-};
+// const getField = (data, field) => {
+//    let newArr = [];
+//    if (!data) {
+//       return newArr;
+//    }
+//    newArr = data.reduce((acc, item, index) => {
+//       acc[index] = item[field];
+//       return acc;
+//    }, []);
+//    return newArr;
+// };
 
-console.log(getField(data, 'name'));
+const getField = (data, field) =>
+   !data ? [] : data.map(item => (item = item[field]));
+
+// console.log(getField(data, 'name'));
+console.log(getField());

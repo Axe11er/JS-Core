@@ -38,11 +38,7 @@ const data = [
    },
 ];
 
-const calculatePrice = orders => {
-   let totalPrice = 0;
-   if (!orders) return totalPrice;
-   totalPrice = orders.reduce((acc, item) => (acc += item.price), 0);
-   return totalPrice;
-};
+const calculatePrice = (orders = []) =>
+   orders.reduce((acc, item) => (acc += item.price), 0);
 
 console.log(calculatePrice(data));

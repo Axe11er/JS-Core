@@ -9,10 +9,19 @@ onceF(); // nothing
 
 const f = () => console.log('hi!');
 
-const once = (fn) => () => {
-   if (!fn) return;
-   fn();
-   fn = null;
+// const once = fn => () => {
+//    if (!fn) return;
+//    fn();
+//    fn = null;
+// };
+
+const once = fn => {
+   let flag = true;
+   return () => {
+      if (!flag) return;
+      fn();
+      flag = false;
+   };
 };
 
 const onceF = once(f);

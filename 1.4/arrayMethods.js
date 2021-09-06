@@ -113,3 +113,4 @@ console.log(`----------------------`);
 users.sort((prevUser, nextUser) => prevUser.age - nextUser.age);
 console.log(users);
 console.log(`----------------------`);
+

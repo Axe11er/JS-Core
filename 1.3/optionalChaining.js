@@ -15,12 +15,13 @@ const obj = {
 optionalChaining(obj, ["a", "b", "c", "d"]) // Привет
 optionalChaining(obj, ["a", "b", "c", "d", "e"]) // undefined
  */
+'use strict';
 
 const obj = {
    a: {
       b: {
          c: {
-            d: 'Привет!',
+            d: 'Привет',
          },
       },
    },
@@ -28,25 +29,14 @@ const obj = {
 
 const arr = ['a', 'b', 'c', 'd'];
 
-function optionalChaining(obj, chain) {
-   function compareProps(object, index) {
-      let key = chain[index];
-      let value = object[key];
+// console.log(optionalChaining(obj, arr));
 
-      if (typeof value === 'undefined') {
-         return;
-      }
+// const optionalChaining = (obj, [key, ...chain]) => obj[key] === undefined ? undefined : path.length ? optionalChaining(obj[key], chain) : obj[key];
 
-      let nextIndex = index + 1;
-
-      if (nextIndex < chain.length) {
-         return compareProps(value, nextIndex);
-      }
-
-      return value;
-   }
-
-   return compareProps(obj, 0);
-}
+const optionalChaining = (obj, [key, ...chain]) => {
+   return !obj[key] || chain.length === 0
+      ? obj[key]
+      : optionalChaining(obj[key], chain);
+};
 
 console.log(optionalChaining(obj, arr));

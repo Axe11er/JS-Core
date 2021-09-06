@@ -3,29 +3,28 @@
  */
 
 const arithmetic = (a, b, operator) => {
-	let result;
-	switch (operator) {
-		case 'add':
-			result = a + b;
-			break;
+   let result;
+   switch (operator) {
+      case 'add':
+         result = a + b;
+         break;
 
-		case 'subtract':
-			result = a - b;
-			break;
+      case 'subtract':
+         result = a - b;
+         break;
 
-		case 'multiply':
-			result = a * b;
-			break;
+      case 'multiply':
+         result = a * b;
+         break;
 
-		case 'divide':
-			result = a / b;
-			break;
+      case 'divide':
+         result = a / b;
+         break;
 
-
-		default:
-			result = NaN;
-	}
-	return result;
+      default:
+         result = NaN;
+   }
+   return result;
 };
 
-console.log(arithmetic(2, 3, '+'));
+console.log(arithmetic(2, 3, 'add'));

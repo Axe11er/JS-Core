@@ -26,11 +26,11 @@ console.log(arr.filter(notInArray([1, 2, 3, 4, 5, 6, 7, true]))); // [undefined,
 
 let arr = [1, 2, 3, 4, 5, 6, 7, true, undefined, NaN];
 
-const inRange = (a, b) => (item) => a <= item && item <= b;
+const inRange = (a, b) => item => a <= item && item <= b;
 
-const inArray = (arr) => (item) => arr.includes(item);
+const inArray = arr => item => arr.includes(item);
 
-const notInArray = (arr) => (item) => !arr.includes(item);
+const notInArray = arr => item => !arr.includes(item);
 
 console.log(arr.filter(inRange(3, 6)));
 console.log(arr.filter(inArray([1, 2, 3, 4, 11, 10, undefined])));
